@@ -1,7 +1,7 @@
 #include <iostream>
 #include <unordered_map>
 
-void printFrequencies(int array[], int arraySize);
+std::unordered_map<int, int> getFrequencyMap(int array[], int arraySize);
 
 int main() {
 
@@ -19,10 +19,10 @@ int main() {
   //   // std::cout << '\n';
   // }
 
-  printFrequencies(array, 20);
+  std::unordered_map<int, int> frequencies = getFrequencyMap(array, 20);
 }
 
-void printFrequencies(int array[], int arraySize) {
+std::unordered_map<int, int> getFrequencyMap(int array[], int arraySize) {
   std::unordered_map<int, int> frequencies;
 
   for (int i{}; i < arraySize; ++i) {
@@ -32,4 +32,6 @@ void printFrequencies(int array[], int arraySize) {
   for (auto it : frequencies) {
     std::cout << it.first << ":\t" << it.second << '\n';
   }
+
+  return frequencies;
 }
